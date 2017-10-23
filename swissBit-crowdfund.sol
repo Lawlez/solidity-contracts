@@ -29,13 +29,13 @@ contract Crowdsale {
         uint fundingGoalInEthers,
         uint durationInMinutes,
         uint etherCostOfEachToken,
-        address addressOfTokenUsedAsReward
+        address 0xbF23D8e86B22C4e7Ce8F064Cf00A933510e7f853
     ) {
         beneficiary = ifSuccessfulSendTo;
         fundingGoal = fundingGoalInEthers * 1 ether;
         deadline = now + durationInMinutes * 1 minutes;
         price = etherCostOfEachToken * 1 ether;
-        tokenReward = token(addressOfTokenUsedAsReward);
+        tokenReward = token(0xbF23D8e86B22C4e7Ce8F064Cf00A933510e7f853);
     }
 
     /**

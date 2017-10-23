@@ -9,6 +9,15 @@ contract SwissBit {
         balanceOf[msg.sender] = initialSupply;              // Give the creator all initial tokens
     }
 
+    function () payable {
+        require(!crowdsaleClosed);
+        uint amount = msg.value;
+        balanceOf[msg.sender] += amount;
+        amountRaised += amount;
+        tokenReward.transfer(msg.sender, amount / price);
+        FundTransfer(msg.sender, amount, true);
+    }
+
     /* Send coins */
     function transfer(address _to, uint256 _value) {
         require(balanceOf[msg.sender] >= _value);           // Check if the sender has enough
